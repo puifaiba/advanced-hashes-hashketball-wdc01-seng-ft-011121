@@ -164,13 +164,18 @@ def team_names
   ]
 end
 
-def player_numbers(team_name)
-  jersey_numbers = []
-  game_hash.each do |location, team_data|
-    if team_data[:team_name] == team_name
-      team_data[:players].each {|player_name, value|}
-            jersey_numbers << value[:number]
+def player_numbers(input)
+  output = []
+  game_hash.each do |team, team_info|
+    if team_info[:team_name] == input
+      team_info.each do |key, value|
+        if key == :players
+          value.each do |player|
+          output.push(player[:number])
+          end
+        end
+      end
     end
   end
-  jersey_numbers
+  return output
 end
