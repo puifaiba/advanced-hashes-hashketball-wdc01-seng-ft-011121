@@ -170,10 +170,8 @@ def player_numbers(team_name)
     if team_data[:team_name] == team_name
       team_data[:players].each {|player_name, value|}
             jersey_numbers << value[:number]
-          end
-        end
-      end
     end
   end
+
   jersey_numbers
 end
